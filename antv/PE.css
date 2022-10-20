@@ -1,0 +1,84 @@
+
+* {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image:linear-gradient(to top, #a18cd1, #fbc2eb);
+}
+.icon{
+    margin-top: 50px;
+    content: '';
+    /* 将此元素改成块级元素 */
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    transform: translate(30px,-30px);
+    background-image: url(/images/icon.JPG);
+    background-size: cover;
+    border: 10px solid #fff;
+}
+a{
+    text-decoration: none;
+    color: #fff;
+}
+.shell{
+    position:fixed;
+    width: 280px;
+    height: 100vh;
+    background-color: #a18cd1;
+}
+.buttons{
+    margin: 30px 0;
+    color: #fff;
+}
+.li{
+    letter-spacing: 2px;
+    font: 600 17px '';
+    padding: 16px 52px;
+    transition: .3s;
+}
+.li::after{
+    content: '';
+    position: absolute;
+    left: 20px;
+    margin-top: -22px;
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border-radius: 50%;
+}
+.buttons>li:hover{
+    background-color: #beb5df;
+}
+
+.li ul{
+    width: 0;
+    height: 400px;
+    padding: 60px 0;
+    position: absolute;
+    top: 200px;
+    right: 0;
+    overflow: hidden;
+    background-color: #50536e;
+    transition: .3s;
+}
+
+.li ul li{
+    padding: 16px 24px;
+    transition: .3s;
+}
+
+.li:hover ul{
+    width: 228px;
+}
+.li ul li:hover{
+    background-color: #828eb9;
+}

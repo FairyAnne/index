@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>登录</title>
+    <link rel="stylesheet" href="./1.css" />
+    <script src="/wuhang/jq-3.6.0.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Fairy</h1>
+      <form action="">
+        <input type="text" class="tbx" placeholder="账户" />
+        <input type="password" class="tbx" placeholder="密码" />
+        <input type="submit" class="sub" placeholder="登录" />
+      </form>
+    </div>
+  
+      <a class="back" href="/index.html">回首页</a>
+   
+    <script>
+      const con = document.querySelector(".container");
+      let isIn = true;
+      let isOut = false;
+      var span;
+
+      //   监听鼠标
+      con.addEventListener("mouseenter", (e) => {
+        if (isIn) {
+          let inX = e.clientX - e.target.offsetLeft;
+          let inY = e.clientY - e.target.offsetTop;
+          let el = document.createElement("span");
+          el.style.left = inX + "px";
+          el.style.top = inY + "px";
+          con.appendChild(el);
+          $(".container span").removeClass("out");
+          $(".container span").addClass("in");
+          span = document.querySelector(".container span");
+          isIn = false;
+          isOut = true;
+        }
+      });
+
+      con.addEventListener("mouseleave", (e) => {
+        if (isOut) {
+          // 获取出去的鼠标位置
+          // 生成元素的位置=出去点距离窗口的距离-父盒子距离窗口的距离
+          let outX = e.clientX - e.target.offsetLeft;
+          let outY = e.clientY - e.target.offsetTop;
+
+          $(".container span").removeClass("in"); // 移除进入的动画
+          $(".container span").addClass("out"); // 添加出去的动画
+          // 添加出去的坐标
+          $(".out").css("left", outX + "px");
+          $(".out").css("top", outY + "px");
+
+          isOut = false; // 关闭出去的门
+          // 当动画结束后再删除元素
+          setTimeout(() => {
+            con.removeChild(span); // 删除元素
+            isIn = true; // 打开进入的门
+          }, 500);
+        }
+      });
+    </script>
+  </body>
+</html>
